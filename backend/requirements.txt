@@ -21,4 +21,4 @@ flask-jwt-extended
 pymongo
 python-dotenv
 datetime
-
+gunicorn
