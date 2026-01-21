@@ -1,0 +1,20 @@
+/* Hide scrollbar but keep functionality */
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-y: scroll; /* Reserve space for scrollbar to prevent layout shift */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure no horizontal scroll */
+* {
+  max-width: 100%;
+  overflow-x: hidden;
+}

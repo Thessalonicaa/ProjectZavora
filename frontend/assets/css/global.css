@@ -1,0 +1,279 @@
+/* Futuristic Dark-Red Theme Global Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@100;300;400;600;700;900&display=swap');
+
+:root {
+  --primary-red: #ff1744;
+  --dark-red: #c41c3b;
+  --neon-red: #ff4081;
+  --dark-bg: #0a0e27;
+  --darker-bg: #050812;
+  --card-bg: #1a1f3a;
+  --accent-cyan: #00d4ff;
+  --accent-purple: #9d00ff;
+  --success-green: #00ff41;
+  --warning-orange: #ff9500;
+}
+
+* {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html, body {
+  background: linear-gradient(135deg, #050812 0%, #0a0e27 50%, #1a0a1a 100%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   ============================================ */
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  background: rgba(26, 31, 58, 0.6);
+  border: 2px solid rgba(255, 23, 68, 0.2);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #ff1744;
+  box-shadow: 0 0 20px rgba(255, 23, 68, 0.3),
+              inset 0 0 10px rgba(255, 23, 68, 0.1);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+a {
+  color: #ff1744;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1744, #00d4ff);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: #ff4081;
+  text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   BACKGROUND PATTERNS
+   ============================================ */
+
+.bg-grid {
+  background-image: 
+    linear-gradient(0deg, rgba(255, 23, 68, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 23, 68, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-dots {
+  background-image: 
+    radial-gradient(circle, rgba(255, 23, 68, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+@keyframes shimmerLoad {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.loading {
+  animation: shimmerLoad 2s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 23, 68, 0.2) 25%,
+    rgba(255, 23, 68, 0.4) 50%,
+    rgba(255, 23, 68, 0.2) 75%
+  );
+  background-size: 1000px 100%;
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.badge-red {
+  background: rgba(255, 23, 68, 0.2);
+  border: 1px solid #ff1744;
+  color: #ff1744;
+}
+
+.badge-red:hover {
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+  transform: scale(1.05);
+}
+
+.badge-cyan {
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+}
+
+.badge-cyan:hover {
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* ============================================
+   MODAL / DIALOG
+   ============================================ */
+
+.modal-backdrop {
+  background: rgba(5, 8, 18, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* ============================================
+   NOTIFICATION / TOAST
+   ============================================ */
+
+.toast {
+  animation: slideInRight 0.4s ease-out, slideInUp 0.4s ease-out;
+  background: linear-gradient(135deg, rgba(255, 23, 68, 0.2), rgba(0, 212, 255, 0.1));
+  border: 1px solid rgba(255, 23, 68, 0.4);
+  border-radius: 10px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   VIDEO BACKGROUND
+   ============================================ */
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+  z-index: -1;
+  filter: hue-rotate(340deg) saturate(1.2);
+}
+
+/* ============================================
+   PARTICLE EFFECTS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ff1744, #00d4ff);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* ============================================
+   RESPONSIVE TEXT
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
+  
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+}

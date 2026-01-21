@@ -1,0 +1,51 @@
+// backend/server.js - Fixed version
+
+const express = require('express')
+const http = require('http')
+const cors = require('cors')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+const { initializeSocket } = require('./socket')
+
+dotenv.config()
+
+// Create Express app
+const app = express()
+
+// Middleware
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5000',
+    'https://projectfinal.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+// MongoDB Connection (FIXED – removed deprecated options)
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/zavora')
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch(err => console.log('❌ MongoDB error:', err))
+
+// Routes
+const messagesRouter = require('./routes/messages')
+const sellersRouter = require('./routes/sellers')
+
+app.use('/api', messagesRouter)
+app.use('/api', sellersRouter)
+
+// Create HTTP server
+const server = http.createServer(app)
+
+// Initialize Socket.IO
+initializeSocket(server)
+
+// Start server
+const PORT = process.env.PORT || 5000
+server.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`)
+})
