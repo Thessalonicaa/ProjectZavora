@@ -32,9 +32,8 @@ JWTManager(app)
 # เชื่อมต่อ MongoDB ด้วย mongoengine โดยตรง
 try:
     connect(
-        db=app.config.get("MONGODB_SETTINGS", {}).get("db", "MyCarsWed"),
-        host=app.config.get("MONGODB_SETTINGS", {}).get("host", "localhost"),
-        port=app.config.get("MONGODB_SETTINGS", {}).get("port", 27017)
+        host=app.config["MONGODB_SETTINGS"].get("host", "localhost"),
+        db=app.config["MONGODB_SETTINGS"].get("db", "MyCarsWed"),
     )
     print("✓ MongoDB connected successfully")
 except Exception as e:

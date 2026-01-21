@@ -281,7 +281,7 @@
             <option value="MPV">{{ currentLanguage === 'th' ? 'รถยนต์อเนกประสงค์' : 'MPV' }}</option>
             <option value="Roadster">{{ currentLanguage === 'th' ? 'โรดสเตอร์' : 'Roadster' }}</option>
             <option value="SUV">{{ currentLanguage === 'th' ? 'รถสปอร์ตอเนกประสงค์' : 'SUV' }}</option>
-            <option value="Pickup">{{ currentLanguage === 'th' ? 'รถกะบะ' : 'Pickup' }}</option>
+            <option value="Pickup">{{ currentLanguage === 'th' ? 'รถกระบะ' : 'Pickup' }}</option>
             <option value="Van">{{ currentLanguage === 'th' ? 'รถตู้' : 'Van' }}</option>
             <option value="Sports">{{ currentLanguage === 'th' ? 'รถสปอร์ต' : 'Sports' }}</option>
           </select>
